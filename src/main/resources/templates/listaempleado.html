@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<meta charset="ISO-8859-1">
+<title>Listar</title>
+</head>
+<body>
+<div class="alert alert-success" th:if="${msg} != null" th:text="${msg}"></div>
+<div class="container">
+ <h2>Lista de Empleados</h2>         
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Employee id</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+        <th>Numero de telefono</th>
+        <th>Fecha de Contratacion</th>
+        <th>Job id</th>
+        <th>Salario</th>
+        <th>Manager id</th>
+        <th>Department id</th>
+        <th>Modificar</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr  data-th-each="employee : ${employees}">
+         <td data-th-text="${employee.employee_id}"></td>
+         <td data-th-text="${employee.firstname}"></td>
+         <td data-th-text="${employee.lastname}"></td>
+         <td data-th-text="${employee.email}"></td>
+         <td data-th-text="${employee.phonenumber}"></td>
+         <td data-th-text="${employee.hiredate}"></td>
+         <td data-th-text="${employee.job.job_title}"></td>
+         <td data-th-text="${employee.salary}"></td>
+         <td data-th-text="${employee.managerid}"></td>
+         <td data-th-text="${employee.department != null} ? *{employee.department.departmentname}: 'Sin departamento'"></td>
+         <td>
+         <a th:href="@{/listaemp/editar/}+${employee.employee_id}">
+         <span class="fa-stach">
+         <i class="glyphicon glyphicon-edit"></i>
+         </span>
+         </a>
+         </td>
+          <td>
+         <a th:href="@{/listaemp/eliminar/}+${employee.employee_id}">
+         <span class="fa-stach">
+         <i class="glyphicon glyphicon-trash"></i>
+         </span>
+         </a>
+         </td>
+         </tr>
+    </tbody>
+  </table>
+   <a class="btn btn-info" href="/listaemp/nuevoempleado">Agregar Nuevo</a>
+</div>
+
+</body>
+</html>

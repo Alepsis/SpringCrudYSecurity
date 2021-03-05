@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<meta charset="ISO-8859-1">
+<title>Actualizar Empleado</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well well-sm">
+                <form class="form-horizontal" th:action="@{/actualizarempleado/{id}(id=${emple.employee_id})}" th:object="${emple}"method= "POST" >
+                    <fieldset>
+                        <legend class="text-center header">Actualizar Empleado</legend>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"></span>
+                            <div class="col-md-8">
+                              <label for="nombre">Nombre(s)</label>    
+                              <input id="fname" required name="first_name" th:field="*{first_name}" type="text" placeholder="Nombre" class="form-control">
+                            </div>
+                        </div>
+                           <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"></span>
+                            <div class="col-md-8">
+                              <label>Apellido</label>    
+                              <input id="fname" required name="last_name" th:field="*{last_name}" type="text" placeholder="Apellido" class="form-control">
+                            </div>
+                        </div>
+                            <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"></span>
+                            <div class="col-md-8">
+                              <label>Email</label>    
+                              <input id="fname" required name="email" th:field="*{email}" type="text" placeholder="Email" class="form-control">
+                            </div>
+                        </div>
+                            <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"></span>
+                            <div class="col-md-8">
+                              <label>Numero de Telefono</label>    
+                              <input id="fname" required name="phone_number" th:field="*{phone_number}" type="text" placeholder="Numero de telefono" class="form-control">
+                            </div>
+                        </div>
+                            <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"></span>
+                            <div class="col-md-8">
+                              <label>Fecha de contratacion</label>    
+                              <input id="fname" required name="hire_date" th:field="*{hire_date}" type="date" placeholder="" class="form-control">
+                            </div>
+                        </div>
+                            <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"></span>
+                            <div class="col-md-8">
+                              <label for ="Job">Trabajo: </label>    
+                               <select id="fname" class="form-control"  name="job_id">
+                               <option th:each="job :${jobs}" th:value="${job.job_id}" 
+              			          th:text="${job.job_title}" >
+                               </option>
+                              </select>
+                        </div>
+                        </div>
+                              <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"></span>
+                            <div class="col-md-8">
+                              <label>Salario</label>    
+                              <input id="fname" required name="salary" th:field="*{salary}" type="text" placeholder="Salario" class="form-control">
+                            </div>
+                        </div>
+                              <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"></span>
+                            <div class="col-md-8">
+                              <label>Manager id:</label>    
+                              <input id="fname" required th:field="*{manager_id}" name="manager_id" type="text" placeholder="manager" class="form-control">
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"></span>
+                            <div class="col-md-8">
+                              <label for ="Job">Departamento</label>    
+                             <select id="fname" class="form-control" name="department_id" >
+                     	<option th:each="dep :${deps}" th:value="${dep.department_id}" th:text="${dep.department_name}">
+              			</option>
+    				</select>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">Actualizar Usuario</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

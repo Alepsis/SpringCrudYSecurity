@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<meta charset="ISO-8859-1">
+<title>Listar</title>
+</head>
+<body>
+<div class="alert alert-success" th:if="${msg} != null" th:text="${msg}"></div>
+<div class="container">
+ <h2>Lista de Empleados</h2>         
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Country_id</th>
+        <th>Country_name</th>
+        <th>Region_id</th>
+        <th>Modificar</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr  class="success" data-th-each="countrie : ${countries}">
+         <td data-th-text="${countrie.country_id}"></td>
+         <td data-th-text="${countrie.country_name}"></td>
+         <td data-th-text="${countrie.region_id}"></td>
+          <td>
+         <a>
+         <span class="fa-stach">
+         <i class="glyphicon glyphicon-edit"></i>
+         </span>
+         </a>
+         </td>
+          <td>
+         <a >
+         <span class="fa-stach">
+         <i class="glyphicon glyphicon-trash"></i>
+         </span>
+         </a>
+         </td>
+         </tr>
+    </tbody>
+  </table>
+   <a class="btn btn-info" href="/home/nuevo">Agregar Nuevo</a>
+</div>
+
+</body>
+</html>
