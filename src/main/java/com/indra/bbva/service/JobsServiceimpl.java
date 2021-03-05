@@ -33,7 +33,7 @@ public class JobsServiceimpl implements JobsService {
 	@Override
 	public String eliminar(Jobs jobs) {
 		try {
-			jobrepo.deleteById(jobs.getJob_id());
+			jobrepo.deleteById(jobs.getJobid());
 			return "Error al eliminar";
 		}catch(Exception ex) {
 			return "Error al eliminar";

@@ -247,7 +247,7 @@ public class AppCrudApplication implements CommandLineRunner{
 	private void JobsSave() {
 		Jobs job = new Jobs();
 		job.setJob_id("PD_PRE");
-		job.setJob_title("Prueba");
+		job.setJobtitle("Prueba");
 		job.setMax_salary(3000);
 		job.setMin_salary(1000);
 		
@@ -257,7 +257,7 @@ public class AppCrudApplication implements CommandLineRunner{
 	private void JobsUpdate() {
 		Jobs job = new Jobs();
 		job.setJob_id("PD_PRE");
-		job.setJob_title("Prueba Actualizar");
+		job.setJobtitle("Prueba Actualizar");
 		jobsServiceImp.actualizar(job);
 	}
 	

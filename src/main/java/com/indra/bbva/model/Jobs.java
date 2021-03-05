@@ -1,5 +1,6 @@
 package com.indra.bbva.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,8 +11,10 @@ import javax.persistence.Table;
 public class Jobs {
 	
 	@Id
-	private String job_id;
-	private String job_title;
+	@Column(name="JOB_ID")
+	private String jobid;
+	@Column(name="JOB_TITLE")
+	private String jobtitle;
 	private int min_salary;
 	private int max_salary;
 	
@@ -19,27 +22,27 @@ public class Jobs {
 		
 	}
 	
-	public Jobs(String job_id , String job_title, int min_salary, int max_salary){
-		this.job_id = job_id;
-		this.job_title = job_title;
+	public Jobs(String jobid , String jobtitle, int min_salary, int max_salary){
+		this.jobid = jobid;
+		this.jobtitle = jobtitle;
 		this.min_salary = min_salary;
 		this.max_salary = max_salary;
 	}
 
-	public String getJob_id() {
-		return job_id;
+	public String getJobid() {
+		return jobid;
 	}
 
-	public void setJob_id(String job_id) {
-		this.job_id = job_id;
+	public void setJob_id(String jobid) {
+		this.jobid = jobid;
 	}
 
-	public String getJob_title() {
-		return job_title;
+	public String getJobtitle() {
+		return jobtitle;
 	}
 
-	public void setJob_title(String job_title) {
-		this.job_title = job_title;
+	public void setJobtitle(String jobtitle) {
+		this.jobtitle = jobtitle;
 	}
 
 	public int getMin_salary() {
@@ -60,7 +63,7 @@ public class Jobs {
 
 	@Override
 	public String toString() {
-		return "Jobs [job_id=" + job_id + ", job_title=" + job_title + ", min_salary=" + min_salary + ", max_salary="
+		return "Jobs [job_id=" + jobid + ", job_title=" + jobtitle + ", min_salary=" + min_salary + ", max_salary="
 				+ max_salary + "]";
 	}
 	

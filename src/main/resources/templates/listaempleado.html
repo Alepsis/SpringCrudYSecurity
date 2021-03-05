@@ -12,6 +12,8 @@
 <meta charset="ISO-8859-1">
 <title>Listar</title>
 </head>
+<header th:insert="layouts/nav.html :: nav">
+</header>
 <body>
 <div class="alert alert-success" th:if="${msg} != null" th:text="${msg}"></div>
 <div class="container">
@@ -64,6 +66,6 @@
   </table>
    <a class="btn btn-info" href="/listaemp/nuevoempleado">Agregar Nuevo</a>
 </div>
-
+<footer th:insert="layouts/footer.html :: footer"></footer>
 </body>
 </html>
